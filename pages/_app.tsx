@@ -1,36 +1,36 @@
-import { useEffect } from "react";
-import type { AppProps } from "next/app";
-import { Doto, Noto_Sans_KR, Roboto } from "next/font/google";
-import localFont from "next/font/local";
-import Script from "next/script";
-import { useRouter } from "next/router";
+import { useEffect } from 'react';
+import type { AppProps } from 'next/app';
+import { Doto, Noto_Sans_KR, Roboto } from 'next/font/google';
+import localFont from 'next/font/local';
+import Script from 'next/script';
+import { useRouter } from 'next/router';
 // import { GA_TRACKING_ID, pageview } from "@/lib/gtag";
-import { ThemeProvider } from "@/components/context/ThemeContext";
-// import Header from "@/components/Header";
-// import Footer from "@/components/Footer";
-import "@/styles/globals.sass";
+import { ThemeProvider } from '@/components/context/ThemeContext';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import '@/styles/globals.sass';
 
 const Noto = Noto_Sans_KR({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["cyrillic"],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['cyrillic'],
 });
 
 const Mono = Doto({
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--doto",
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--doto',
 });
 
 const Rbto = Roboto({
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--rbto",
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--rbto',
 });
 
 const Square = localFont({
-  src: "./fonts/NanumSquareNeoVF.woff2",
-  style: "normal",
-  variable: "--square",
+  src: './fonts/NanumSquareNeoVF.woff2',
+  style: 'normal',
+  variable: '--square',
 });
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -79,9 +79,9 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </style>
       <div className={`${Square.variable} ${Mono.variable} ${Rbto.variable}`}>
-        {/* <Header /> */}
+        <Header />
         <Component {...pageProps} />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </ThemeProvider>
   );
