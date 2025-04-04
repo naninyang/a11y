@@ -31,6 +31,7 @@ export default function FocusStyleTest() {
   const [btnText, setBtnText] = useState('#ffffff');
   const [btnBorder, setBtnBorder] = useState('#005fa3');
   const [selectedColor, setSelectedColor] = useState<'bg' | 'outline' | 'btnBg' | 'btnText' | 'btnBorder' | null>(null);
+  const [showBasis, setShowBasis] = useState(false);
 
   const comparisons = [
     {
@@ -74,7 +75,17 @@ export default function FocusStyleTest() {
     <section className={styles.section}>
       <div className={styles.module}>
         <h2>포커스 스타일 테스트</h2>
-        <div className={styles['basis-group']}>
+        <div className={styles['basis-button']}>
+          <button
+            className={styles.toggleBasis}
+            onClick={() => setShowBasis((prev) => !prev)}
+            aria-expanded={showBasis}
+            aria-controls="focus-basis"
+          >
+            {showBasis ? '근거 닫기' : '근거 보기'}
+          </button>
+        </div>
+        <div className={styles['basis-group']} id="focus-basis" hidden={!showBasis} aria-hidden={!showBasis}>
           <div className={styles.basis}>
             <h3>근거 #1: WCAG 2.2 – 1.4.11: Non-text Contrast</h3>
             <blockquote cite="WCAG 2.2" lang="en">
