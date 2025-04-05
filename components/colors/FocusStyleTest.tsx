@@ -81,6 +81,7 @@ export default function FocusStyleTest() {
             onClick={() => setShowBasis((prev) => !prev)}
             aria-expanded={showBasis}
             aria-controls="focus-basis"
+            type="button"
           >
             {showBasis ? '근거 닫기' : '근거 보기'}
           </button>
@@ -194,6 +195,7 @@ export default function FocusStyleTest() {
           <div className={styles.preview} style={{ backgroundColor: bg }}>
             <button
               className={styles.testButton}
+              type="button"
               style={
                 {
                   backgroundColor: btnBg,

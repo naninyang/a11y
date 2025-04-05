@@ -34,6 +34,7 @@ export default function ColorBlindnessSim() {
             onClick={() => setShowBasis((prev) => !prev)}
             aria-expanded={showBasis}
             aria-controls="blindness-basis"
+            type="button"
           >
             {showBasis ? '근거 닫기' : '근거 보기'}
           </button>

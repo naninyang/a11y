@@ -43,6 +43,7 @@ export default function ColorContrast() {
             onClick={() => setShowBasis((prev) => !prev)}
             aria-expanded={showBasis}
             aria-controls="contrast-basis"
+            type="button"
           >
             {showBasis ? '근거 닫기' : '근거 보기'}
           </button>
