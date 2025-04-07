@@ -57,7 +57,7 @@ export default function WaiAria() {
   const renderAria = (data: AriaData[]) =>
     data.map((item, index) => (
       <section key={index}>
-        <h2>{item['속성명']}</h2>
+        <h2>aria-{item['속성명']}</h2>
         <p>{item['설명']}</p>
         <dl>
           <div>
