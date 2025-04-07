@@ -13,6 +13,7 @@ export default function ColorBlindnessSim() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'image' | 'color'>('color');
   const [showBasis, setShowBasis] = useState(false);
+  const [imageSourceType, setImageSourceType] = useState<'upload' | 'url' | 'paste'>('upload');
 
   const selectedFilter = filters.find((f) => f.type === selected)?.filter || 'none';
 
@@ -22,6 +23,29 @@ export default function ColorBlindnessSim() {
     const url = URL.createObjectURL(file);
     setImageUrl(url);
     setViewMode('image');
+  }
+
+  function handleImageUrlInput(e: React.ChangeEvent<HTMLInputElement>) {
+    const url = e.target.value;
+    setImageUrl(url);
+    setViewMode('image');
+  }
+
+  function handlePasteImage(e: React.ClipboardEvent<HTMLInputElement>) {
+    const item = e.clipboardData.items[0];
+    if (item && item.type.indexOf('image') === 0) {
+      const file = item.getAsFile();
+      if (file) {
+        const url = URL.createObjectURL(file);
+        setImageUrl(url);
+        setViewMode('image');
+      }
+    }
+  }
+
+  function handleResetImage() {
+    setImageUrl(null);
+    setViewMode('color');
   }
 
   return (
@@ -91,22 +115,8 @@ export default function ColorBlindnessSim() {
             ))}
           </div>
           <div className={styles.upload}>
-            <label htmlFor="img">이미지 선택</label>
-            <input id="img" type="file" accept="image/*" onChange={handleImageUpload} />
-          </div>
-          {imageUrl && (
+            <h4>기본 색상/이미지 선택</h4>
             <div className={styles.radios}>
-              <div className={styles.radio}>
-                <input
-                  type="radio"
-                  name="viewMode"
-                  value="image"
-                  id="selectImage"
-                  checked={viewMode === 'image'}
-                  onChange={() => setViewMode('image')}
-                />
-                <label htmlFor="selectImage">이미지 보기</label>
-              </div>
               <div className={styles.radio}>
                 <input
                   type="radio"
@@ -118,6 +128,101 @@ export default function ColorBlindnessSim() {
                 />
                 <label htmlFor="selectColor">기본 색상 보기</label>
               </div>
+              <div className={styles.radio}>
+                <input
+                  type="radio"
+                  name="viewMode"
+                  value="image"
+                  id="selectImage"
+                  checked={viewMode === 'image'}
+                  onChange={() => setViewMode('image')}
+                />
+                <label htmlFor="selectImage">이미지 보기</label>
+              </div>
+              {imageUrl && (
+                <button
+                  type="button"
+                  onClick={handleResetImage}
+                  className={styles.deleteButton}
+                  aria-label="업로드 이미지 삭제"
+                >
+                  이미지 삭제
+                </button>
+              )}
+            </div>
+          </div>
+          {viewMode === 'image' && (
+            <div className={styles.upload}>
+              <h4>이미지 입력 방식</h4>
+              <div className={styles.radios}>
+                <div className={styles.radio}>
+                  <input
+                    type="radio"
+                    id="upload"
+                    name="source"
+                    value="upload"
+                    checked={imageSourceType === 'upload'}
+                    onChange={() => setImageSourceType('upload')}
+                  />
+                  <label htmlFor="upload">파일 업로드</label>
+                </div>
+                <div className={styles.radio}>
+                  <input
+                    type="radio"
+                    id="url"
+                    name="source"
+                    value="url"
+                    checked={imageSourceType === 'url'}
+                    onChange={() => setImageSourceType('url')}
+                  />
+                  <label htmlFor="url">이미지 주소 입력</label>
+                </div>
+                <div className={styles.radio}>
+                  <input
+                    type="radio"
+                    id="paste"
+                    name="source"
+                    value="paste"
+                    checked={imageSourceType === 'paste'}
+                    onChange={() => setImageSourceType('paste')}
+                  />
+                  <label htmlFor="paste">클립보드 붙여넣기</label>
+                </div>
+              </div>
+              {imageSourceType === 'upload' && (
+                <div className={styles.file}>
+                  <label htmlFor="imgUpload">파일 선택</label>
+                  <div className={styles.handle}>
+                    <input id="imgUpload" type="file" accept="image/*" onChange={handleImageUpload} />
+                  </div>
+                </div>
+              )}
+              {imageSourceType === 'url' && (
+                <div className={styles.file}>
+                  <label htmlFor="imgUrl">이미지 URL 입력</label>
+                  <div className={styles.handle}>
+                    <input
+                      id="imgUrl"
+                      type="text"
+                      onChange={handleImageUrlInput}
+                      placeholder="https:// 를 포함해서 넣으세요"
+                    />
+                  </div>
+                </div>
+              )}
+              {imageSourceType === 'paste' && (
+                <div className={`${styles.file} ${styles.clipboard}`}>
+                  <label htmlFor="pasteBox">붙여넣기</label>
+                  <div className={styles.paste}>
+                    <input
+                      type="text"
+                      id="pasteBox"
+                      placeholder="여기에 클립보드에 저장한 이미지를 붙여넣으세요"
+                      onPaste={handlePasteImage}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
