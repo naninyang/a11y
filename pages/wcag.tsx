@@ -91,6 +91,7 @@ export default function Wcag() {
               aria-labelledby={`tab-${selected}`}
               tabIndex={0}
             >
+              {levels[selected] === undefined && <p className="loading">로딩 중...</p>}
               {levels[selected]?.map((item, index) => (
                 <section key={index} className={item['레벨'] === 'AAA' ? styles.high : ''}>
                   <h2>

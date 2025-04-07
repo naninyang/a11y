@@ -35,7 +35,7 @@ const apiList = [
   { key: 'ROLE', label: 'Role', endpoint: 'role' },
 ];
 
-export default function PropertyPage() {
+export default function WaiAria() {
   const [selected, setSelected] = useState('ARIA');
   const [dataMap, setDataMap] = useState<Record<string, AriaData[] | VariousData[] | RoleData[]>>({});
 
