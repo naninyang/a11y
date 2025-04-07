@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from '@/styles/Home.module.sass';
 
 const filters = [
-  { type: 'normal', label: '비색각 이상(원본)', filter: 'none' },
+  { type: 'normal', label: '비색각 이상 (원본)', filter: 'none' },
   { type: 'protanopia', label: '적색약 (Protanopia)', filter: 'url(#protanopia)' },
   { type: 'deuteranopia', label: '녹색약 (Deuteranopia)', filter: 'url(#deuteranopia)' },
   { type: 'tritanopia', label: '청색약 (Tritanopia)', filter: 'url(#tritanopia)' },
