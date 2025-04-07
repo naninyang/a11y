@@ -1,10 +1,10 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { Doto, Noto_Sans_KR, Roboto } from 'next/font/google';
 import localFont from 'next/font/local';
-// import Script from 'next/script';
-// import { useRouter } from 'next/router';
-// import { GA_TRACKING_ID, pageview } from "@/lib/gtag";
+import Script from 'next/script';
+import { useRouter } from 'next/router';
+import { GA_TRACKING_ID, pageview } from '@/lib/gtag';
 import { ThemeProvider } from '@/components/context/ThemeContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -34,28 +34,28 @@ const Square = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  // const router = useRouter();
-  // useEffect(() => {
-  //   const handleRouteChange = (url: string) => {
-  //     pageview(url);
-  //   };
-  //   router.events.on("routeChangeComplete", handleRouteChange);
-  //   router.events.on("hashChangeComplete", handleRouteChange);
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleRouteChange);
-  //     router.events.off("hashChangeComplete", handleRouteChange);
-  //   };
-  // }, [router.events]);
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on('hashChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off('hashChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
-  // useEffect(() => {
-  //   if ("scrollRestoration" in history) {
-  //     history.scrollRestoration = "manual";
-  //   }
-  // }, []);
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return (
     <ThemeProvider>
-      {/* <Script id='google-analytics'>
+      <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -64,7 +64,7 @@ export default function App({ Component, pageProps }: AppProps) {
             page_path: window.location.pathname,
           });
         `}
-      </Script> */}
+      </Script>
       <style jsx global>
         {`
           body,
