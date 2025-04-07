@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LeftArrow } from '@/components/Svgs';
 import Anchor from '@/components/Anchor';
+import Seo, { originTitle } from '@/components/Seo';
 import styles from '@/styles/Guideline.module.sass';
 
 type AriaData = {
@@ -137,8 +138,16 @@ export default function PropertyPage() {
     }
   };
 
+  const timestamp = Date.now();
+
   return (
     <main className={styles.main}>
+      <Seo
+        pageTitles={`WAI-ARIA 1.2 가이드 - ${originTitle}`}
+        pageTitle={`WAI-ARIA 1.2 가이드`}
+        pageDescription={`WAI-ARIA 1.2 가이드을 볼 수 있습니다`}
+        pageImg={`https://a11y.dev1stud.io/og-aria.webp?ts=${timestamp}`}
+      />
       <div className={styles.container}>
         <div className={styles.backlink}>
           <Anchor href="/">

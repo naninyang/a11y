@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Anchor from '@/components/Anchor';
+import Seo, { originTitle } from '@/components/Seo';
 import { LeftArrow } from '@/components/Svgs';
 import styles from '@/styles/Guideline.module.sass';
 
@@ -43,8 +44,16 @@ export default function Wcag() {
     setSelected(lv);
   };
 
+  const timestamp = Date.now();
+
   return (
     <main className={styles.main}>
+      <Seo
+        pageTitles={`WCAG 2.2 레벨별 가이드 - ${originTitle}`}
+        pageTitle={`WCAG 2.2 레벨별 가이드`}
+        pageDescription={`WCAG 2.2 레벨별 가이드을 볼 수 있습니다`}
+        pageImg={`https://a11y.dev1stud.io/og-wcag.webp?ts=${timestamp}`}
+      />
       <div className={styles.container}>
         <div className={styles.backlink}>
           <Anchor href="/">

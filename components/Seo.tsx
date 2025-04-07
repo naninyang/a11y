@@ -12,7 +12,7 @@ interface Props {
   pageOgType?: string;
 }
 
-export const originTitle = '단위계산기 - 리얼센치랩스(리치랩) realcmlabs';
+export const originTitle = 'Accessible colors - 안전색깔론 서비스';
 
 const Seo = ({
   pageTitles,
@@ -26,9 +26,10 @@ const Seo = ({
 }: Props) => {
   const router = useRouter();
   const pagePath = router.asPath;
-  const domain = 'https://realcmlabs.dev1stud.io';
+  const domain = 'https://a11y.dev1stud.io';
   const defaultTitle = `${originTitle}`;
-  const defaultDescription = '각종 단위 계산기를 이용해 보셔요! :)';
+  const defaultDescription =
+    'WCAG 2.2에 맞게 색깔을 선택하는데 도움을 드리며,  WCAG 2.2 및 WAI-ARIA 1.2의 가이드라인을 가이드라인을 알려드려요.';
   const title = pageTitles || defaultTitle;
   const description = pageDescription || defaultDescription;
   const url = `${domain}${pagePath}`;
