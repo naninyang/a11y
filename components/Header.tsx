@@ -1,6 +1,6 @@
 import Anchor from './Anchor';
 import { useTheme } from './context/ThemeContext';
-import { LogoDark, LogoLight, ModeDark, ModeLight, Outlink } from './Svgs';
+import { LogoDark, LogoLight, ModeDark, ModeLight } from './Svgs';
 import styles from '@/styles/Header.module.sass';
 
 export default function Header() {

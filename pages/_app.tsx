@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { Doto, Noto_Sans_KR, Roboto } from 'next/font/google';
 import localFont from 'next/font/local';
-import Script from 'next/script';
-import { useRouter } from 'next/router';
+// import Script from 'next/script';
+// import { useRouter } from 'next/router';
 // import { GA_TRACKING_ID, pageview } from "@/lib/gtag";
 import { ThemeProvider } from '@/components/context/ThemeContext';
 import Header from '@/components/Header';

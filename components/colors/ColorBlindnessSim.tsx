@@ -77,7 +77,7 @@ export default function ColorBlindnessSim() {
           <p>* 이미지는 서버에 업로드되지 않고 미리보기 용도로만 사용됩니다.</p>
           <div className={styles.radios}>
             {filters.map(({ type, label }) => (
-              <div className={styles.radio}>
+              <div className={styles.radio} key={type}>
                 <input
                   type="radio"
                   name="colorfilter"
@@ -86,9 +86,7 @@ export default function ColorBlindnessSim() {
                   checked={selected === type}
                   onChange={() => setSelected(type)}
                 />
-                <label htmlFor={`cb__${type}`} key={type}>
-                  {label}
-                </label>
+                <label htmlFor={`cb__${type}`}>{label}</label>
               </div>
             ))}
           </div>

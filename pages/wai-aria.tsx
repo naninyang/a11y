@@ -108,7 +108,7 @@ export default function PropertyPage() {
   const renderRole = (data: RoleData[]) =>
     data.map((item, index) => (
       <section key={index}>
-        <h2>role="{item['속성값']}"</h2>
+        <h2>role=&#34;{item['속성값']}&#34;</h2>
         <p>{item['설명']}</p>
         <h3>예제</h3>
         <code>{item['예제']}</code>
