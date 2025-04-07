@@ -16,18 +16,20 @@ export default function Header() {
               <span>Accessible Colors - 안전색깔론 서비스</span>
             </Anchor>
           </h1>
-          <ol>
-            <li>
-              <Anchor href="/wcag">
-                <span className={styles.link}>WCAG 2.2</span>
-              </Anchor>
-            </li>
-            <li>
-              <Anchor href="/wai-aria">
-                <span className={styles.link}>WAI-ARIA 1.2</span>
-              </Anchor>
-            </li>
-          </ol>
+          <nav>
+            <ol>
+              <li>
+                <Anchor href="/wcag">
+                  <span className={styles.link}>WCAG 2.2</span>
+                </Anchor>
+              </li>
+              <li>
+                <Anchor href="/wai-aria">
+                  <span className={styles.link}>WAI-ARIA 1.2</span>
+                </Anchor>
+              </li>
+            </ol>
+          </nav>
         </div>
         <button type="button" onClick={toggleTheme}>
           {isDarkMode ? <ModeLight /> : <ModeDark />}

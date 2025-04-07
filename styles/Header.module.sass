@@ -66,15 +66,13 @@ header.header
             font-size: ds.rem(14)
             color: ds.$hex-accent
 
+            &:hover, &:focus
+              span
+                border-bottom: ds.rem(2) solid ds.$hex-accent
+                text-decoration: underline
+
             @include ds.mq(minSmall)
               padding: 0 ds.rem(7)
-
-            svg
-              width: ds.rem(14)
-              height: ds.rem(14)
-
-              path
-                fill: ds.$hex-accent
 
     svg
       & + span:not(.link)
@@ -93,7 +91,7 @@ header.header
       body[data-theme='dark'] &
         background-color: rgba(ds.$hex-gray-dark, .2)
 
-      &:hover, &:focus
+      &:hover, &:focus-visible
         background-color: rgba(ds.$hex-dark, 1)
 
         svg
