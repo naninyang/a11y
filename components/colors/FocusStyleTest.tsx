@@ -209,7 +209,7 @@ export default function FocusStyleTest() {
             </button>
           </div>
         </div>
-        <div className={styles.a11y}>
+        <div className={styles.a11y} role="status" aria-live="polite" aria-atomic="true">
           <h3>색상 확대 보기</h3>
           <div className={styles['expand-toggle']}>
             <div className={styles.radios}>
@@ -334,7 +334,7 @@ export default function FocusStyleTest() {
             )}
           </div>
         </div>
-        <div className={`${styles.results} ${styles['result-fs']}`}>
+        <div className={`${styles.results} ${styles['result-fs']}`} role="status" aria-live="polite" aria-atomic="true">
           <h3>대비 결과</h3>
           <dl>
             {comparisons.map(({ label, fg, bg }) => {

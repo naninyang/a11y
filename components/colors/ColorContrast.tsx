@@ -152,7 +152,7 @@ export default function ColorContrast() {
             />
           </div>
         </div>
-        <div className={styles.a11y}>
+        <div className={styles.a11y} role="status" aria-live="polite" aria-atomic="true">
           <h3>색상 확대 보기</h3>
           <div className={styles['expand-toggle']}>
             <div className={styles.radios}>
@@ -215,7 +215,7 @@ export default function ColorContrast() {
             )}
           </div>
         </div>
-        <div className={`${styles.results} ${styles['result-cc']}`}>
+        <div className={`${styles.results} ${styles['result-cc']}`} role="status" aria-live="polite" aria-atomic="true">
           <h3>대비 결과</h3>
           <dl>
             <div>
