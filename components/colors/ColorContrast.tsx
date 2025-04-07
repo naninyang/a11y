@@ -49,7 +49,7 @@ export default function ColorContrast() {
           </button>
         </div>
         <div className={styles['basis-group']} id="contrast-basis" hidden={!showBasis} aria-hidden={!showBasis}>
-          <div className={styles['basis-group']}>
+          <div className={styles.basis}>
             <h3>근거 #1: WCAG 2.2 – 1.4.3 Contrast (Minimum)</h3>
             <blockquote cite="WCAG 2.2" lang="en">
               <p>

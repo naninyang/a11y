@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Anchor from '@/components/Anchor';
+import { LeftArrow } from '@/components/Svgs';
 import styles from '@/styles/Guideline.module.sass';
 
 type Guideline = {
@@ -44,6 +46,12 @@ export default function Wcag() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
+        <div className={styles.backlink}>
+          <Anchor href="/">
+            <LeftArrow />
+            <span>뒤로가기</span>
+          </Anchor>
+        </div>
         <div className={styles.headline}>
           <h1>WCAG 2.2 레벨별 점검 기준</h1>
           <p>AAA 레벨은 난이도가 높거나 현실적으로 어려운 부분들이 있을 수 있습니다.</p>
