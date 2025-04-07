@@ -139,12 +139,7 @@ export default function ColorBlindnessSim() {
           <div className={styles.preview} style={{ filter: selectedFilter }}>
             {viewMode === 'image' && imageUrl ? (
               <div className={styles.image}>
-                <img
-                  src={imageUrl}
-                  alt="업로드 이미지 미리보기"
-                  className={styles.image}
-                  style={{ filter: selectedFilter }}
-                />
+                <img src={imageUrl} alt="업로드 이미지 미리보기" style={{ filter: selectedFilter }} />
               </div>
             ) : (
               <div className={styles.palette}>
