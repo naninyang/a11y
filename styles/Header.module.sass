@@ -57,6 +57,12 @@ header.header
                 body[data-theme='dark'] &
                   color: rgba(ds.$hex-gray-dark, .5)
 
+          &.current
+            a
+              span
+                color: ds.$hex-accent
+                border-bottom-color: ds.$hex-accent
+
           a
             display: flex
             align-items: center
@@ -64,14 +70,15 @@ header.header
             padding: ds.rem(3) 0
             @include ds.fw(500)
             font-size: ds.rem(14)
-            color: ds.$hex-accent
 
             span
-              transition: all .4s cubic-bezier(.4,0,.2,1)
+              color: ds.$hex-dark
               border-bottom: ds.rem(2) solid transparent
+              transition: all .4s cubic-bezier(.4,0,.2,1)
 
             &:hover, &:focus
               span
+                color: ds.$hex-accent
                 border-bottom-color: ds.$hex-accent
 
             @include ds.mq(minSmall)

@@ -1,9 +1,11 @@
 import Anchor from './Anchor';
+import { useRouter } from 'next/router';
 import { useTheme } from './context/ThemeContext';
 import { LogoDark, LogoLight, ModeDark, ModeLight } from './Svgs';
 import styles from '@/styles/Header.module.sass';
 
 export default function Header() {
+  const router = useRouter();
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
@@ -18,12 +20,18 @@ export default function Header() {
           </h1>
           <nav>
             <ol>
-              <li>
+              <li
+                className={router.asPath === `/wcag` ? styles.current : ''}
+                aria-current={router.asPath === `/wcag` ? 'page' : false}
+              >
                 <Anchor href="/wcag">
                   <span className={styles.link}>WCAG 2.2</span>
                 </Anchor>
               </li>
-              <li>
+              <li
+                className={router.asPath === `/wai-aria` ? styles.current : ''}
+                aria-current={router.asPath === `/wai-aria` ? 'page' : false}
+              >
                 <Anchor href="/wai-aria">
                   <span className={styles.link}>WAI-ARIA 1.2</span>
                 </Anchor>
